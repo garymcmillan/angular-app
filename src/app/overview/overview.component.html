@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-sm-6">
+    <ul class="nav flex-column">
+      <li *ngFor="let item of data" class="nav-item">
+        <a *ngIf="item.type == 'folder';else file" (click)="selectFolder(item.id)" class="link" >{{ item.name }} +</a>
+        <ng-template #file>
+          <a>{{ item.name }}.{{ item.type }}</a>
+        </ng-template>
+      </li>
+      <li style="padding-top: 10px;">
+        Sort: <span (click)="sortABC()" style="font-size: 12px;" class="link">ABC</span>
+      </li>
+    </ul>
+  </div>
+  <div class="col-sm-6">
+    <router-outlet></router-outlet>
+  </div>
+</div>

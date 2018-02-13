@@ -1,0 +1,6 @@
+<h1>{{folder?.name}}</h1>
+<h3>Files</h3>
+<p *ngFor="let file of folder?.files">
+  {{file.name}}.{{file.type}}<br />
+  <small>{{file.added}}</small>
+</p>
