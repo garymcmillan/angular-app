@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -21,7 +22,7 @@ import { FolderContentsComponent } from './folder-contents/folder-contents.compo
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [DataService],
+  providers: [DataService, AppRoutingModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import 'rxjs/Rx';
 
 @Injectable()
@@ -17,12 +17,11 @@ export class DataService {
       }
     );
   }
-  
+
   getFiles(id: number){
-    return this.http.get('assets/data.json')
+    return this.http.get<any[]>('assets/data.json')
     .map(
-      (response) => {
-        const data: any[] = response;
+      (data) => {
         for(let folder of data){
           if(folder.id == id){
             return folder;

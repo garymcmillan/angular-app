@@ -1,6 +1,11 @@
-<h1>{{folder?.name}}</h1>
-<h3>Files</h3>
-<p *ngFor="let file of folder?.files">
-  {{file.name}}.{{file.type}}<br />
-  <small>{{file.added}}</small>
-</p>
+<div class="container" *ngIf="folder; else empty">
+  <h1>{{folder.name}}</h1>
+  <h3>Files</h3>
+  <p *ngFor="let file of folder.files">
+    {{file.name}}.{{file.type}}<br />
+    <small>{{file.added}}</small>
+  </p>
+</div>
+<ng-template #empty>
+  <span>There seems to be an error</span>
+</ng-template>
