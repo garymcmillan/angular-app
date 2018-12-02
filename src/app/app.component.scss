@@ -1,0 +1,14 @@
+ul {
+    list-style: none;
+}
+
+li {
+    padding: 7px 0;
+}
+#chevron-arrow-right {
+    display: inline-block;
+    border-right: 2px solid #696969;
+    border-bottom: 2px solid #696969;
+    width: 8px; height: 8px;
+    transform: rotate(-45deg);
+}

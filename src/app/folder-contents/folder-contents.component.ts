@@ -5,7 +5,7 @@ import { DataService } from '../services/data.service';
 @Component({
   selector: 'app-folder-contents',
   templateUrl: './folder-contents.component.html',
-  styleUrls: ['./folder-contents.component.css']
+  styleUrls: ['./folder-contents.component.scss']
 })
 export class FolderContentsComponent implements OnInit {
   folder;

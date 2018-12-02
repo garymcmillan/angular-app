@@ -1,28 +1,29 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
-import { ActivatedRoute, Params, Router } from '@angular/router';
-import { AppRoutingModule } from './app-routing.module';
+import {reducers} from './store/reducers/app.reducers';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
+import {StoreModule} from '@ngrx/store';
+import {EffectsModule} from '@ngrx/effects';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-
-import { DataService } from './services/data.service';
-import { OverviewComponent } from './overview/overview.component';
-import { FolderContentsComponent } from './folder-contents/folder-contents.component';
+import {FilesEffects} from './store/effects/files.effects';
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    OverviewComponent,
-    FolderContentsComponent
-  ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule
-  ],
-  providers: [DataService, AppRoutingModule],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent
+    ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        StoreModule.forRoot(reducers),
+        EffectsModule.forRoot([FilesEffects]),
+        StoreDevtoolsModule.instrument({
+            maxAge: 5
+        })
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

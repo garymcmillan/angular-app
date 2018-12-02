@@ -1,7 +1,10 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <router-outlet></router-outlet>
-    </div>
-  </div>
-</div>
+<ul class="folders" *ngIf="files">
+    <li *ngFor="let file of files; let i = index">
+        <span>{{file.name}}</span>
+        <i
+        id="chevron-arrow-right"
+        *ngIf="file.type === 'folder'"
+        (click)="openFolder(file)"></i>
+    </li>
+</ul>
+
