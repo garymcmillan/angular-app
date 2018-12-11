@@ -8,13 +8,11 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import {FilesEffects} from './store/effects/files.effects';
-import { FileListComponent } from './file-list/file-list.component';
 
 
 @NgModule({
     declarations: [
-        AppComponent,
-        FileListComponent
+        AppComponent
     ],
     imports: [
         BrowserModule,

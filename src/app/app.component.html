@@ -1,10 +1,27 @@
-<ul class="folders" *ngIf="files">
+<p>
+    Sort By:
+    <button class="btn" (click)="sort('name')">Name</button>
+    <button class="btn" (click)="sort('type')">Type</button>
+    <button class="btn" (click)="sort('added')">Date</button>
+</p>
+
+<input class="search" placeholder="Search" (change)="search($event)"/>
+
+<ul class="files" *ngIf="files">
     <li *ngFor="let file of files; let i = index">
         <span>{{file.name}}</span>
-        <i
-        id="chevron-arrow-right"
-        *ngIf="file.type === 'folder'"
-        (click)="openFolder(file)"></i>
+        <div *ngIf="file.type === 'folder'">
+            <i
+            id="chevron-arrow-right"
+            (click)="toggleFolder(file.name)"></i>
+        </div>
+        <ul class="sub-files"
+            [ngClass]="[openedFolder != file.name ? 'hidden' : '']"
+            *ngIf="file.type === 'folder'">
+            <li *ngFor="let subFile of file.files; let i = index">
+                {{subFile.name}}
+            </li>
+        </ul>
     </li>
 </ul>
 
